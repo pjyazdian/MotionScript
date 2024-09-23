@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>MotionScript</title>
+  <meta name="description" content="Project page for MotionScript.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <meta charset="utf-8">
+
+  <!-- Facebook preview
+  <meta property="og:image" content="https://imagine.enpc.fr/~monniert/DTIClustering/thumbnail.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="400">
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://imagine.enpc.fr/~monniert/DTIClustering/"/>
+  <meta property="og:title" content="DTI Clustering"/>
+  <meta property="og:description" content="Project page for Deep Transformation-Invariant Clustering."/>
+  -->
+
+  <!--Twitter preview
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DTI Clustering" />
+  <meta name="twitter:description" content="Project page for Deep Transformation-Invariant Clustering."/>
+  <meta name="twitter:image" content="https://imagine.enpc.fr/~monniert/DTIClustering/thumbnail_twitter.png">
+  -->
+
+  <!--Style-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  
+  <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: auto; /* Allow scrolling */
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px; /* Adjust width as needed */
+            margin: 0 auto; /* Center gallery */
+        }
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        .slide img {
+            width: 50%; /* Resize images to fit half the screen */
+            height: auto;
+        }
+        .caption {
+            font-size: 1.2em; /* Adjust font size as needed */
+        }
+        #navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #717171;
+        }
+    </style>
+  
+  
+
+	
+	
+	
+
+</head>
+<body>
+
+<div class="container" style="text-align:center; padding:2rem 15px">
+  <div class="row" style="text-align:center">
+    <h1>MotionScript: Natural Language Descriptions for Expressive 3D Human Motions</h1>
+    <h4> </h4>
+  </div>
+  <div class="row" style="text-align:center">
+    <div class="col-xs-0 col-md-3"></div>
+    <div class="col-xs-12 col-md-6">
+	<h4>
+		<nobr>Payam Jome Yazdian<sup>1</sup></nobr> &emsp;
+		<nobr>Eric Liu<sup>1</sup></nobr> &emsp;
+		<nobr>Rachel Lagasse<sup>1</sup></nobr> &emsp;
+		<nobr>Hamid Mohammadi<sup>2</sup></nobr> &emsp;
+		<nobr>Li Cheng<sup>2</sup></nobr> &emsp;
+		<nobr>Angelica Lim<sup>1</sup></nobr>
+	</h4>
+	<h5>
+		<sup>1</sup>School of Computing Science, Simon Fraser University, Burnaby, BC, Canada<br>
+		<sup>2</sup>Dept. of Electrical and Computer Engineering, University of Alberta, Edmonton, Alberta, Canada
+	</h5>
+      
+    </div>
+    <!-- Link to Arxiv/PDF -->
+	<!--
+	<div class="hidden-xs hidden-sm col-md-1" style="text-align:left; margin-left:0px; margin-right:0px">
+      <a href="https://arxiv.org/abs/2312.12634" style="color:inherit">
+        <i class="fa fa-file-pdf-o fa-4x"></i></a>
+    </div>
+    -->
+	
+    <!-- Link to GitHub -->
+	<!--
+    <div class="hidden-xs hidden-sm col-md-2" style="text-align:left; margin-left:0px;">
+      <a href="https://github.com/pjyazdian/MotionScript" style="color:inherit">
+        <i class="fa fa-github fa-4x"></i></a>
+    </div>
+	-->
+	<!-- Link to Google Drive Gallery -->
+	<div class="hidden-xs hidden-sm col-md-2" style="text-align:left; margin-left:0px;">
+	  <a href="https://drive.google.com/drive/folders/1xsKcx7YbiPVx8LjFgMBNlT3VjrNYaSsz?usp=sharing" style="color:inherit; text-decoration:none;">
+		<img src="asset/gallery.png" alt="Gallery Icon" style="width: 64px; height: 64px;">
+		<div style="font-size: 16px; margin-top: 8px;">Gallery</div>
+	  </a>
+	</div>
+    
+  </div>
+</div>
+
+<div class="container" style="text-align:center; padding:1rem">
+  <div class="row" style="display: flex; text-align: left; align-items: center;">
+      <div class="col-xs-6">
+        <h4><u>Original Caption</u></h4>
+        <p>
+          A person goes from a standing position to a bended knee while gesturing.
+        </p>
+        <br>
+        <h4><u>MotionScript Enhanced Caption</u></h4>
+        <p>
+			His left elbow and his left knee are at right angle. From this stance, the left knee extends, and not long after, it bends. Just moments before, both hands are further down than his hips, near to the left ankle. With that pose, his right hand spreads significantly apart from the left ankle and right after, gets closer to the right foot. In the second right before, he moves upwards and in the meantime, moves towards the front. A second later, he shifts far to the left. Simultaneously, both hands spread away from the left foot. Meanwhile, his left hand spreads significantly apart from his left ankle. Shortly after, he shifts downwards and a moment later, he shifts downwards briskly. The right knee is unbent and from that pose, the right knee bends significantly.
+		</p>
+    </div>
+    <div class="col-xs-6">
+      <img src="asset/example/000263_Merged.gif" alt="teaser image showing an avatar dancing" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+  <!-- Links to external resources -->
+  <h3 style="text-align:center; padding-top:1rem">
+    <a class="label label-info" href="https://arxiv.org/abs/2312.12634">Paper</a>
+    <a class="label label-info" href="https://github.com/pjyazdian/MotionScript">Code</a>
+    <a class="label label-info" href="https://youtu.be/olrF_Vsx6tY">Video</a>
+	<a class="label label-info" href="https://drive.google.com/drive/folders/1xsKcx7YbiPVx8LjFgMBNlT3VjrNYaSsz">Gallery</a>
+  </h3>
+</div>
+
+<div class="container">
+  <h2>Abstract</h2>
+  <hr/>
+  <p>
+	This paper proposes MotionScript, a motion-to-text conversion algorithm and natural language representation for human body motions. MotionScript aims to describe movements in greater detail and with more accuracy than previous natural language approaches. Many motion datasets describe relatively objective and simple actions with little variation on the way they are expressed (e.g. sitting, walking, dribbling a ball). But for expressive actions that contain a diversity of movements in the class (e.g. being sad, dancing), or for actions outside the domain of standard motion capture datasets (e.g. stylistic walking, sign-language, interactions with animals), more specific and granular natural language descriptions are needed. Our proposed MotionScript descriptions differ from existing natural language representations in that it provides direct descriptions in natural language instead of simple action labels or high-level human captions. To the best of our knowledge, this is the first attempt at translating 3D motions to natural language descriptions without requiring training data. Our experiments show that when MotionScript representations are used in a text-to-motion neural task, large language models can be used to generate unseen complex motions.
+  </p>
+
+<h2>Video</h2>
+<hr/>
+<div id="video-container" style="text-align: center;">
+    <iframe width="100%" height="500" src="https://www.youtube.com/embed/olrF_Vsx6tY" 
+    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+</div>
+  <!--
+  <div class="row" style="text-align:center">
+
+    <div class="col-xs-6 text-center">
+      <h4><u>Short presentation</u> (3min)</h4>
+      <div class="embed-responsive embed-responsive-16by9" style="text-align:center">
+        <iframe class="embed-responsive-item text-center" src="https://www.youtube.com/embed/j20MBc1hWGQ" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          style="width:100%; clip-path:inset(1px 1px);" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="col-xs-6 text-center">
+      <h4><u>Long presentation</u> (11min)</h4>
+      <div class="embed-responsive embed-responsive-16by9" style="text-align:center">
+        <iframe class="embed-responsive-item text-center" src="https://www.youtube.com/embed/xhLUOh5PKBA" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          style="width:100%; clip-path:inset(1px 1px);" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <h2>Approach</h2>
+  <hr/>
+  <img src="asset/framework_2.png" alt="image showing framework of how MotionScript works" class="text-center" style="width: 100%; max-width: 1200px">
+  <p>The process of generating textual representation of human motions is synthesized directly from 3D skeleton sequences. First <i>posecodes</i>, a quantifiable representation of static pose attributes, are extracted. Next, temporal changes are evaluated in <i>posecodes</i> over time to capture the dynamic aspect of motions in a categorical form. Finally, a methodology that identifies <i>motioncodes</i>, a novel representation of movement patterns, is applied. Afterwards, a selection process is applied on the detected <i>motioncodes</i> to filter out redundant information and aggregate them to convert the <i>motioncodes</i> into concise and coherent natural language sentences.</p>
+  <!--
+  <div class="row" style="text-align: center">
+    <div class="col-xs-6">
+      <h4 style="margin-right: 20%"><u>DTI framework</u></h4>
+    </div>
+    <div class="col-xs-6">
+      <h4><u>Deep transformation module
+          <img src="http://latex.codecogs.com/svg.latex?\mathcal{T}_{f_{k}}" alt="T_f_k" border="0"/></u></h4>
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-xs-6">
+      <img src="resrc/dti.png" alt="dti.png" class="text-center" style="width: 100%; max-width: 900px">
+    </div>
+    <div class="col-xs-6">
+      <img src="resrc/deep_tsf.png" alt="deep_tsf.png" class="text-center" style="width: 90%; max-width: 900px; margin-top:
+      10px">
+    </div>
+  </div>
+  <div class="row" style="text-align: center">
+    <div class="col-xs-6">
+      <div style="width: 90%; max-width: 900px; padding-top:10px">
+      <p>Given a sample <img src="http://latex.codecogs.com/svg.latex?x_i" alt="x_i" border="0"/> and prototypes 
+      <img src="http://latex.codecogs.com/svg.latex?c_1" alt="c_1" border="0"/> and 
+      <img src="http://latex.codecogs.com/svg.latex?c_2" alt="c_2" border="0"/>, standard clustering such as K-means 
+      assigns the sample to the closest prototype. Our DTI clustering first aligns prototypes to the sample using a
+      family of parametric transformations - here rotations - then picks the prototype whose alignment yields the 
+      smallest distance.</p>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div style="width: 100%; max-width: 900px; padding-top:10px">
+        <p>We predict alignment with deep learning. Given an image 
+      <img src="http://latex.codecogs.com/svg.latex?x_i" alt="x_i" border="0"/>, each deep parameter predictor 
+      <img src="http://latex.codecogs.com/svg.latex?f_k" alt="f_k" border="0"/> predicts 
+      parameters for a sequence of transformations - here affine, morphological and thin plate spline transformations -
+      to align the prototype <img src="http://latex.codecogs.com/svg.latex?c_k" alt="c_k" border="0"/>
+      to the query image <img src="http://latex.codecogs.com/svg.latex?x_i" alt="x_i" border="0"/>.</p>
+      </div>
+    </div>
+  </div>
+  -->
+
+  <h2>Results</h2>
+  <hr/>
+  <br/>
+
+
+  <!-- Gallery section -->
+<section id="gallery-section">
+    <h2>Bridging the Gap Between LLMs and Motions</h2>
+    <p>Explore the generated motions from human descriptions and LLM-generated captions using two different models. The animations are presented in both baseline and augmented forms. T2M-GPT is trained on original captions from the HumanML3D dataset, while T2M-GPT+ is trained with augmented data by MotionScript. LLM-generated captions are created by prompting an LLM to describe human motion.</p>
+    <div class="gallery" id="gallery"></div>
+    <!-- Navigation dots container -->
+    <div id="navigation"></div>
+</section>
+
+<script>
+    let currentSlide = 0;
+
+    function parseCSV(data) {
+        const rows = data.split('\n').slice(1);
+        return rows.map(row => {
+            const fields = [];
+            let insideQuote = false;
+            let field = '';
+
+            for (let char of row) {
+                if (char === '"' && insideQuote) {
+                    insideQuote = false;
+                } else if (char === '"' && !insideQuote) {
+                    insideQuote = true;
+                } else if (char === ',' && !insideQuote) {
+                    fields.push(field.trim());
+                    field = '';
+                } else {
+                    field += char;
+                }
+            }
+            fields.push(field.trim());
+            return fields;
+        });
+    }
+
+    fetch('asset/LLM_Examples/captions.csv')
+        .then(response => response.text())
+        .then(data => {
+            console.log("CSV Data Loaded");
+            const rows = parseCSV(data);
+            const gallery = document.getElementById('gallery');
+            const navigation = document.getElementById('navigation');
+
+            if (rows.length === 0) {
+                console.warn('No data found in CSV.');
+                return;
+            }
+
+            rows.forEach((columns, index) => {
+                if (columns.length < 3) {
+                    console.warn(`Skipping malformed row: ${columns}`);
+                    return;
+                }
+                const humanDescription = columns[1].trim();
+                const llmGeneratedCaption = columns[2].trim();
+
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                slide.innerHTML = `
+                    <table>
+                        <tr>
+                            <td colspan="2" class="caption"><p><strong>Human Description:</strong> ${humanDescription}</p></td>
+                        </tr>
+                        <tr class="gifs-row">
+                            <td class="gif-container">
+                                <h4>T2M-GPT</h4>
+                                <img src="asset/LLM_Examples/${columns[0].trim()}_short_BS_3DMesh_pred.gif" alt="Human Description Motion Baseline">
+                            </td>
+                            <td class="gif-container">
+                                <h4>T2M-GPT+</h4>
+                                <img src="asset/LLM_Examples/${columns[0].trim()}_short_MS_3DMesh_pred.gif" alt="Human Description Motion Augmented">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="caption"><p><strong>LLM Generated Caption:</strong> ${llmGeneratedCaption}</p></td>
+                        </tr>
+                        <tr class="gifs-row">
+                            <td class="gif-container">
+                                <h4>T2M-GPT</h4>
+                                <img src="asset/LLM_Examples/${columns[0].trim()}_long_BS_3DMesh_pred.gif" alt="LLM Generated Motion Baseline">
+                            </td>
+                            <td class="gif-container">
+                                <h4>T2M-GPT+</h4>
+                                <img src="asset/LLM_Examples/${columns[0].trim()}_long_MS_3DMesh_pred.gif" alt="LLM Generated Motion Augmented">
+                            </td>
+                        </tr>
+                    </table>
+                `;
+
+                gallery.appendChild(slide);
+
+                // Create navigation dot
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                dot.addEventListener('click', () => showSlide(index));
+                navigation.appendChild(dot);
+            });
+
+            showSlide(currentSlide);
+        })
+        .catch(error => {
+            console.error('Error loading CSV file:', error);
+        });
+
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+        dots.forEach((dot, i) => {
+            dot.className = i === index ? 'dot active' : 'dot';
+        });
+    }
+
+    function nextSlide() {
+        const slides = document.querySelectorAll('.slide');
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        const slides = document.querySelectorAll('.slide');
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+</script>
+
+
+  
+	
+	
+  <h3>Dancing</h3>
+  <hr style="height: 2px; border: none; color: #808080; background-color: #808080;"/>
+  <br/>
+
+  <div class="row" style="display: flex; align-items: center; text-align: left; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
+    <div class="col-xs-6">
+      <h4><u>Original Caption</u></h4>
+      <p>
+        The body is in a dancing action while doing a performance.
+      </p>
+      <br>
+      <h4><u>MotionScript Enhanced Caption</u></h4>
+      <p>
+        The left elbow advances from behind the right one to in front of the right one. At the same time, she moves a great distance to the right. Meanwhile, she moves a bit downwards. At the same time, the right hand moves from behind the left one to a position in front of the left one and comes significantly closer to the left knee. She moves slightly downwards speedily. Simultaneously, she shifts forward.      </p>
+    </div>
+    <div class="col-xs-6">
+      <img src="asset/example/27.gif" alt="teaser image showing an avatar dancing" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+
+  <div class="row" style="display: flex; align-items: center; text-align: left; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
+    <div class="col-xs-6">
+      <h4><u>Original Caption</u></h4>
+      <p>
+        The person is performing while in a dancing action.
+      </p>
+      <br>
+      <h4><u>MotionScript Enhanced Caption</u></h4>
+      <p>
+        She shifts a great distance backward rapidly. The left hand lifts from below the neck ascending to above the neck. She shifts slightly downwards and a second later, she shifts to the right just a little bit. In the second right before, both knees are bent slightly and from this position, her right knee bends and speedily. Meanwhile, her left elbow is almost completely bent and from this stance, her left elbow extends.
+    </div>
+    <div class="col-xs-6">
+      <img src="asset/example/65.gif" alt="teaser image showing an avatar dancing" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+
+  <div class="row" style="display: flex; align-items: center; text-align: left; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
+    <div class="col-xs-6">
+      <h4><u>Original Caption</u></h4>
+      <p>
+        This person is going backwards and is dancing.
+      </p>
+      <br>
+      <h4><u>MotionScript Enhanced Caption</u></h4>
+      <p>
+        The right hand moves nearer to the right foot. Immediately after, he moves a great distance backward quickly. Right after, the left hand raises from below his neck to above his neck.
+      </p>
+    </div>
+    <div class="col-xs-6">
+      <img src="asset/example/82.gif" alt="teaser image showing an avatar dancing" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+
+  <div class="row" style="display: flex; align-items: center; text-align: left; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
+    <div class="col-xs-6">
+      <h4><u>Original Caption</u></h4>
+      <p>
+        The subject is performing while making a dance pose.
+      </p>
+      <br>
+      <h4><u>MotionScript Enhanced Caption</u></h4>
+      <p>
+        He moves forward and not long after, moves backward.
+      </p>
+    </div>
+    <div class="col-xs-6">
+      <img src="asset/example/105.gif" alt="teaser image showing an avatar dancing" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+
+  <div class="row" style="display: flex; align-items: center; text-align: left; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
+    <div class="col-xs-6">
+      <h4><u>Original Caption</u></h4>
+      <p>
+        Someone is in a dancing action while doing a performance.
+      </p>
+      <br>
+      <h4><u>MotionScript Enhanced Caption</u></h4>
+      <p>
+        He shifts backward just a little bit.
+      </p>
+    </div>
+    <div class="col-xs-6">
+      <img src="asset/example/218.gif" alt="teaser image showing an avatar dancing" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+
+  <h3>Exercise</h3>
+  <hr style="height: 2px; border: none; color: #808080; background-color: #808080;"/>
+  <br/>
+
+  <div class="row" style="display: flex; align-items: center; text-align: left; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
+    <div class="col-xs-6">
+      <h4><u>Original Caption</u></h4>
+      <p>
+        A person is doing hand exercises while making a dance pose.
+      </p>
+      <br>
+      <h4><u>MotionScript Enhanced Caption</u></h4>
+      <p>
+        The right hand moves from the left side of the right shoulder to the right side of the right shoulder, and not long after, it moves from the right side of the right shoulder to the left side of the right shoulder. In the second right before, the right elbow is ahead of his left elbow and is partly bent, and from this stance, his right elbow extends.
+      </p>
+      </div>
+    <div class="col-xs-6">
+      <img src="asset/example/48.gif" alt="teaser image showing an avatar dancing" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+
+  <div class="row" style="display: flex; align-items: center; text-align: left; padding-left:1rem; padding-right:1rem; padding-bottom:1rem;">
+    <div class="col-xs-6">
+      <h4><u>Original Caption</u></h4>
+      <p>
+        The subject is lowering a body part and is making hand exercises.
+      </p>
+      <br>
+      <h4><u>MotionScript Enhanced Caption</u></h4>
+      <p>
+        The elbows are a bit bent, and from that pose, both elbows bend.
+      </p>
+    </div>
+    <div class="col-xs-6">
+      <img src="asset/example/160.gif" alt="teaser image showing an avatar dancing" class="text-center" style="width: 100%; max-width: 1100px">
+    </div>
+  </div>
+
+  
+
+ 
+</pre>
+      </div>
+    </div>
+
+<!--
+  <h3>Further information</h3>
+  <hr/>
+  If you like this project, please check out other related works from our group:
+  <h4>Follow-ups</h4>
+  <ul>
+    <li>
+      <a href="https://arxiv.org/abs/2104.14575">Monnier et al. - Unsupervised Layered Image Decomposition into Object
+        Prototypes (arXiv 2021)</a>
+    </li>
+  </ul>
+
+  <h4>Previous works on deep transformations</h4>
+  <ul>
+    <li>
+      <a href="https://arxiv.org/abs/1908.04725">Deprelle et al. - Learning elementary structures for 3D shape
+        generation and matching (NeurIPS 2019)</a>
+    </li>
+    <li>
+      <a href="https://arxiv.org/abs/1806.05228">Groueix et al. - 3D-CODED: 3D Correspondences by Deep Deformation (ECCV
+        2018)</a>
+    </li>
+    <li>
+      <a href="https://arxiv.org/abs/1802.05384">Groueix et al. - AtlasNet: A Papier-Mache Approach to Learning 3D
+        Surface Generation (CVPR 2018)</a>
+    </li>
+  </ul>
+
+  <h3>Acknowledgements</h3>
+  <hr/>
+  <p>
+    This work was supported in part by <a href="https://enherit.enpc.fr/">ANR project EnHerit</a> ANR-17-CE23-0008,
+    project Rapid Tabasco, gifts  from  Adobe and HPC resources from GENCI-IDRIS (Grant 2020-AD011011697). We thank 
+    Bryan Russell, Vladimir Kim, Matthew Fisher, Fran&#231;ois Darmon, Simon Roburin, David Picard, Michael 
+    Ramamonjisoa, Vincent Lepetit, Elliot Vincent, Jean Ponce, William Peebles and Alexei Efros for inspiring 
+    discussions and valuable feedback.
+  </p>
+</div>
+-->
+
+<div class="container" style="padding-top:3rem; padding-bottom:3rem">
+  <p style="text-align:center">
+  &#169; This webpage was in part inspired from this
+  <a href="https://github.com/monniert/project-webpage">template</a>.
+  </p>
+</div>
+
+</body>
+</html>
