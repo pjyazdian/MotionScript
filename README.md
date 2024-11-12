@@ -11,7 +11,12 @@ of human motions. MotionScript descriptions differ from existing natural languag
 
 ## Demo Video
 
-📺 **Demo Video:** [Watch on YouTube](https://youtu.be/olrF_Vsx6tY?si=5Rbzx07MxvCoZ4oS)
+📺 **Demo Video:**
+
+<a href="https://youtu.be/olrF_Vsx6tY?si=5Rbzx07MxvCoZ4oS">
+  <img src="https://img.youtube.com/vi/olrF_Vsx6tY/0.jpg" alt="Demo Video" width="600">
+</a>
+
 
 
 ## Instructions
