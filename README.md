@@ -9,9 +9,9 @@ of human motions. MotionScript descriptions differ from existing natural languag
 
 ![OVERVIEW](docs/asset/framework_2.png)
 
-## Demo Video
 
-📺 **Demo Video:**
+## 📺 Demo Video
+
 
 [![Demo Video](https://img.youtube.com/vi/olrF_Vsx6tY/0.jpg)](https://youtu.be/olrF_Vsx6tY?si=5Rbzx07MxvCoZ4oS)
 
