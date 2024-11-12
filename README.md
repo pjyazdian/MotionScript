@@ -7,7 +7,7 @@ of human motions. MotionScript descriptions differ from existing natural languag
 
 ### [Paper](https://arxiv.org/abs/2312.12634) | [Video](https://youtu.be/olrF_Vsx6tY?si=5Rbzx07MxvCoZ4oS)
 
-![OVERVIEW](Figures/model.jpg)
+![OVERVIEW](docs/asset/framework_2.png)
 
 ## Demo Video
 
