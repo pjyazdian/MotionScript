@@ -94,9 +94,9 @@
     <div class="col-xs-12 col-md-6">
 	<h4>
 		<nobr>Payam Jome Yazdian<sup>1</sup></nobr> &emsp;
-		<nobr>Eric Liu<sup>1</sup></nobr> &emsp;
 		<nobr>Rachel Lagasse<sup>1</sup></nobr> &emsp;
 		<nobr>Hamid Mohammadi<sup>2</sup></nobr> &emsp;
+		<nobr>Eric Liu<sup>1</sup></nobr> &emsp;
 		<nobr>Li Cheng<sup>2</sup></nobr> &emsp;
 		<nobr>Angelica Lim<sup>1</sup></nobr>
 	</h4>
@@ -153,7 +153,7 @@
   <h3 style="text-align:center; padding-top:1rem">
     <a class="label label-info" href="https://arxiv.org/abs/2312.12634">Paper</a>
     <a class="label label-info" href="https://github.com/pjyazdian/MotionScript">Code</a>
-    <a class="label label-info" href="https://www.youtube.com/watch?v=Re0V1EMDCzg">Video</a>
+    <a class="label label-info" href="https://youtu.be/Re0V1EMDCzg">Video</a>
 	<a class="label label-info" href="https://drive.google.com/drive/folders/1xsKcx7YbiPVx8LjFgMBNlT3VjrNYaSsz">Gallery</a>
   </h3>
 </div>
@@ -161,14 +161,11 @@
 <div class="container">
   <h2>Abstract</h2>
   <hr/>
-  <p>
-	This paper proposes MotionScript, a motion-to-text conversion algorithm and natural language representation for human body motions. MotionScript aims to describe movements in greater detail and with more accuracy than previous natural language approaches. Many motion datasets describe relatively objective and simple actions with little variation on the way they are expressed (e.g. sitting, walking, dribbling a ball). But for expressive actions that contain a diversity of movements in the class (e.g. being sad, dancing), or for actions outside the domain of standard motion capture datasets (e.g. stylistic walking, sign-language, interactions with animals), more specific and granular natural language descriptions are needed. Our proposed MotionScript descriptions differ from existing natural language representations in that it provides direct descriptions in natural language instead of simple action labels or high-level human captions. To the best of our knowledge, this is the first attempt at translating 3D motions to natural language descriptions without requiring training data. Our experiments show that when MotionScript representations are used in a text-to-motion neural task, large language models can be used to generate unseen complex motions.
-  </p>
-
+  <p>We introduce MotionScript, a novel framework for generating highly detailed, natural language descriptions of 3D human motions. Unlike existing motion datasets that rely on broad action labels or generic captions, MotionScript provides fine-grained, structured descriptions that capture the full complexity of human movement—including expressive actions (e.g., emotions, stylistic walking) and interactions beyond standard motion capture datasets. MotionScript serves as both a descriptive tool and a training resource for text-to-motion models, enabling the synthesis of highly realistic and diverse human motions from text. By augmenting motion datasets with MotionScript captions, we demonstrate significant improvements in out-of-distribution motion generation, allowing large language models (LLMs) to generate motions that extend beyond existing data. Additionally, MotionScript opens new applications in animation, virtual human simulation, and robotics, providing an interpretable bridge between intuitive descriptions and motion synthesis. To the best of our knowledge, this is the first attempt to systematically translate 3D motion into structured natural language without requiring training data.</p>
 <h2>Video</h2>
 <hr/>
 <div id="video-container" style="text-align: center;">
-    <iframe width="100%" height="500" src="https://www.youtube.com/watch?v=Re0V1EMDCzg" 
+    <iframe width="100%" height="500" src="https://youtu.be/Re0V1EMDCzg" 
     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
     </iframe>
 </div>
@@ -313,11 +310,11 @@
                         </tr>
                         <tr class="gifs-row">
                             <td class="gif-container">
-                                <h4>T2M-GPT</h4>
+                                <h4>T2M</h4>
                                 <img src="asset/LLM_Examples/${columns[0].trim()}_short_BS_3DMesh_pred.gif" alt="Human Description Motion Baseline">
                             </td>
                             <td class="gif-container">
-                                <h4>T2M-GPT+</h4>
+                                <h4>T2M<sup>(MS)</sup></h4>
                                 <img src="asset/LLM_Examples/${columns[0].trim()}_short_MS_3DMesh_pred.gif" alt="Human Description Motion Augmented">
                             </td>
                         </tr>
@@ -326,11 +323,11 @@
                         </tr>
                         <tr class="gifs-row">
                             <td class="gif-container">
-                                <h4>T2M-GPT</h4>
+                                <h4>T2M</h4>
                                 <img src="asset/LLM_Examples/${columns[0].trim()}_long_BS_3DMesh_pred.gif" alt="LLM Generated Motion Baseline">
                             </td>
                             <td class="gif-container">
-                                <h4>T2M-GPT+</h4>
+                                <h4>T2M<sup>(MS)</sup></h4>
                                 <img src="asset/LLM_Examples/${columns[0].trim()}_long_MS_3DMesh_pred.gif" alt="LLM Generated Motion Augmented">
                             </td>
                         </tr>
