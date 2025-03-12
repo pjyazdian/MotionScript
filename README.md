@@ -68,7 +68,7 @@ If you use this code or the MotionScript dataset, please cite the following pape
   title={Motionscript: Natural language descriptions for expressive 3d human motions},
   author={Yazdian, Payam Jome and Liu, Eric and Lagasse, Rachel and Mohammadi, Hamid and Cheng, Li and Lim, Angelica},
   journal={arXiv preprint arXiv:2312.12634},
-  year={2023}
+  year={2024}
 }
 
 ```
