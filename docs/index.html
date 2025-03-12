@@ -135,12 +135,12 @@
 <div class="container" style="text-align:center; padding:1rem">
   <div class="row" style="display: flex; text-align: left; align-items: center;">
       <div class="col-xs-6">
-        <h4><u>Original Caption</u></h4>
+        <h4><u>Human Annotation</u></h4>
         <p>
           A person goes from a standing position to a bended knee while gesturing.
         </p>
         <br>
-        <h4><u>MotionScript Enhanced Caption</u></h4>
+        <h4><u>MotionScript Generated Caption</u></h4>
         <p>
 			His left elbow and his left knee are at right angle. From this stance, the left knee extends, and not long after, it bends. Just moments before, both hands are further down than his hips, near to the left ankle. With that pose, his right hand spreads significantly apart from the left ankle and right after, gets closer to the right foot. In the second right before, he moves upwards and in the meantime, moves towards the front. A second later, he shifts far to the left. Simultaneously, both hands spread away from the left foot. Meanwhile, his left hand spreads significantly apart from his left ankle. Shortly after, he shifts downwards and a moment later, he shifts downwards briskly. The right knee is unbent and from that pose, the right knee bends significantly.
 		</p>
@@ -195,8 +195,7 @@
   <h2>Approach</h2>
   <hr/>
   <img src="asset/framework.png" alt="image showing framework of how MotionScript works" class="text-center" style="width: 100%; max-width: 1200px">
-  <p>The process of generating textual representation of human motions is synthesized directly from 3D skeleton sequences. First <i>posecodes</i>, a quantifiable representation of static pose attributes, are extracted. Next, temporal changes are evaluated in <i>posecodes</i> over time to capture the dynamic aspect of motions in a categorical form. Finally, a methodology that identifies <i>motioncodes</i>, a novel representation of movement patterns, is applied. Afterwards, a selection process is applied on the detected <i>motioncodes</i> to filter out redundant information and aggregate them to convert the <i>motioncodes</i> into concise and coherent natural language sentences.</p>
-  <!--
+  <p>MotionScript framwork, the process of generating textual representations of human motion, directly derived from 3D skeleton sequences. First, posecodes, a quantifiable representation of static pose attributes are extracted. Next, temporal changes in the posecodes are analyzed using Algorithm 1 to identify dynamic motion segments over joints, which are represented as motioncodes, a novel representation of movement patterns. Finally, a selection process is used to filter out redundant motioncodes, aggregating them to transform the motioncodes into concise and coherent natural language sentences.  <!--
   <div class="row" style="text-align: center">
     <div class="col-xs-6">
       <h4 style="margin-right: 20%"><u>DTI framework</u></h4>
