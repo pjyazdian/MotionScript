@@ -1,4 +1,10 @@
-# MotionScript: Official Implementation
+# MotionScript: Natural Language Descriptions for Expressive 3D Human Motions
+
+**[Paper](https://arxiv.org/abs/2312.12634)** | **[Project Page](https://pjyazdian.github.io/MotionScript/)** | **[Video](https://youtu.be/dTbTdQiiWVE)** | **[Code](https://github.com/pjyazdian/MotionScript)** | **[Gallery](https://drive.google.com/drive/folders/1xsKcx7YbiPVx8LjFgMBNlT3VjrNYaSsz?usp=sharing)**
+
+MotionScript is a novel framework for automatically generating detailed, structured natural language descriptions from 3D human motion sequences. It provides unlimited, perfectly aligned, low-level captions that enable text-to-motion synthesis and bridge the gap between intuitive descriptions and motion generation.
+
+![Framework](docs/asset/framework.png)
 
 ## :snake: Create Python environment
 <details>
@@ -64,13 +70,13 @@ To generate captions using the MotionScript framework, follow these steps:
 If you use this code or the MotionScript dataset, please cite the following paper:
 
 ```
-@article{yazdian2023motionscript,
-  title={Motionscript: Natural language descriptions for expressive 3d human motions},
-  author={Yazdian, Payam Jome and Liu, Eric and Lagasse, Rachel and Mohammadi, Hamid and Cheng, Li and Lim, Angelica},
-  journal={arXiv preprint arXiv:2312.12634},
-  year={2024}
+@inproceedings{yazdian2025motionscript,
+  title={MotionScript: Natural Language Descriptions for Expressive 3D Human Motions},
+  author={Yazdian, Payam Jome and Lagasse, Rachel and Mohammadi, Hamid and Liu, Eric and Cheng, Li and Lim, Angelica},
+  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year={2025},
+  organization={IEEE}
 }
-
 ```
 
 ## License
