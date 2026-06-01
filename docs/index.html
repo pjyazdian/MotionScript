@@ -57,21 +57,63 @@
         .caption {
             font-size: 1.2em; /* Adjust font size as needed */
         }
-        #navigation {
-            text-align: center;
+        .gallery-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
             margin-top: 20px;
+            position: relative;
+            z-index: 2;
         }
-        .dot {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
+        #navigation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+            min-width: 0;
+        }
+        .nav-btn {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border: 2px solid #800084;
             border-radius: 50%;
-            display: inline-block;
+            background: #fff;
+            color: #800084;
+            font-size: 20px;
+            line-height: 1;
             cursor: pointer;
+            padding: 0;
         }
-        .dot.active {
-            background-color: #717171;
+        .nav-btn:hover {
+            background: #800084;
+            color: #fff;
+        }
+        .slide-btn {
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            border: 1px solid #c9a0c9;
+            border-radius: 16px;
+            background-color: #f0e0f0;
+            color: #800084;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 30px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .slide-btn:hover {
+            background-color: #e0c8e0;
+            border-color: #800084;
+        }
+        .slide-btn.active {
+            background-color: #800084;
+            border-color: #800084;
+            color: #fff;
         }
     </style>
   
@@ -269,8 +311,11 @@
 
 
     <div class="gallery" id="gallery"></div>
-    <!-- Navigation dots container -->
-    <div id="navigation"></div>
+    <div class="gallery-nav">
+        <button type="button" class="nav-btn" onclick="prevSlide()" aria-label="Previous example">&lsaquo;</button>
+        <div id="navigation"></div>
+        <button type="button" class="nav-btn" onclick="nextSlide()" aria-label="Next example">&rsaquo;</button>
+    </div>
 </section>
 
 <script>
@@ -313,11 +358,14 @@
                 return;
             }
 
-            rows.forEach((columns, index) => {
+            let slideIndex = 0;
+
+            rows.forEach((columns) => {
                 if (columns.length < 3) {
                     console.warn(`Skipping malformed row: ${columns}`);
                     return;
                 }
+                const index = slideIndex++;
                 const humanDescription = columns[1].trim();
                 const llmGeneratedCaption = columns[2].trim();
 
@@ -364,11 +412,13 @@
 
                 gallery.appendChild(slide);
 
-                // Create navigation dot
-                const dot = document.createElement('span');
-                dot.className = 'dot';
-                dot.addEventListener('click', () => showSlide(index));
-                navigation.appendChild(dot);
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'slide-btn';
+                btn.textContent = index + 1;
+                btn.setAttribute('aria-label', `Example ${index + 1}`);
+                btn.addEventListener('click', () => showSlide(index));
+                navigation.appendChild(btn);
             });
 
             showSlide(currentSlide);
@@ -378,24 +428,25 @@
         });
 
     function showSlide(index) {
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
+        currentSlide = index;
+        const slides = document.querySelectorAll('#gallery .slide');
+        const buttons = document.querySelectorAll('#navigation .slide-btn');
         slides.forEach((slide, i) => {
             slide.style.display = i === index ? 'block' : 'none';
         });
-        dots.forEach((dot, i) => {
-            dot.className = i === index ? 'dot active' : 'dot';
+        buttons.forEach((btn, i) => {
+            btn.className = i === index ? 'slide-btn active' : 'slide-btn';
         });
     }
 
     function nextSlide() {
-        const slides = document.querySelectorAll('.slide');
+        const slides = document.querySelectorAll('#gallery .slide');
         currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
     }
 
     function prevSlide() {
-        const slides = document.querySelectorAll('.slide');
+        const slides = document.querySelectorAll('#gallery .slide');
         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
         showSlide(currentSlide);
     }
